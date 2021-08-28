@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admin\post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use App\Models\admin\Post;
 
 class dashpostController extends Controller
 {
@@ -24,7 +27,9 @@ class dashpostController extends Controller
      */
     public function create()
     {
-        //
+        $page_title = 'ایجاد پست';
+        $page_description = 'پست خود را ایجاد کنید!';
+        return view('dashboard.bposts.add-post',compact('page_title','page_description'));
     }
 
     /**
@@ -35,7 +40,16 @@ class dashpostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $page_title = 'ثبت پست';
+        $page_description = 'عملیات ثبت پست';
+        $post = Post::create($request->all());
+        if($post){
+            $message= "done";
+            return view('dashboard.bposts.message-post',compact('page_title','page_description','message')); 
+        }else{
+            $message = "error";
+            return view('dashboard.bposts.message-post',compact('page_title','page_description','message')); 
+        }
     }
 
     /**
@@ -81,5 +95,55 @@ class dashpostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * GET IMAGES FROM SUMMERNOTE AND SAVE THEM,
+     *
+     * 
+     * 
+     */
+
+    public function getReportImg(Request $request){
+        $data = array();
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|mimes:png,jpg,jpeg,csv,txt,pdf|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            $data['success'] = 0;
+            $data['error'] = $validator->errors()->first('file');// Error response
+        }else{
+            if($request->file('file')) {
+
+                $file = $request->file('file');
+                $filename = gnerate_img_file_name();
+
+                // File extension
+                $extension = $file->getClientOriginalExtension();
+                $filename = $filename.".".$extension;
+                // File upload location
+                $location = 'files';
+
+                // Upload file
+                $file->move($location,$filename);
+
+                // File path
+                $filepath = url('files/'.$filename);
+
+                // Response
+                $data['success'] = 1;
+                $data['message'] = 'Uploaded Successfully!';
+                $data['filepath'] = $filepath;
+                $data['extension'] = $extension;
+            }else{
+                // Response
+                $data['success'] = 2;
+                $data['message'] = 'File not uploaded.';
+            }
+        }
+
+        return response()->json($data);
+
     }
 }

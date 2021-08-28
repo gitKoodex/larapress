@@ -52,6 +52,7 @@ Route::group(['prefix' => 'lara-admin'],function()
     //    posts
     Route::resource('/posts',dashpostController::class);
     Route::get('/posts',['as'=>'dashposts','uses'=>'App\Http\Controllers\admin\post\dashpostController@index']);
+    Route::post('/posts/get-content-img',[dashpostController::class,"getReportImg"]);
     Route::resource('/posts/categories',dashPostCatController::class);
     Route::resource('/posts/tags',dashPostTagController::class);
 

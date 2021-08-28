@@ -2,7 +2,7 @@
 <script src="{{url('/')}}/dashboard/js/jquery-sortable.js"></script>
 <script src="{{url('/')}}/dashboard/js/mdb.min.js" type="text/javascript"></script>
 <!-- Custom scripts -->
-<script src="{{url('/')}}/dashboard/js/admin.js" type="text/javascript"></script>
+<!-- <script src="{{url('/')}}/dashboard/js/admin.js" type="text/javascript"></script> -->
 <script src="{{url('/')}}/dashboard/js/jquery.dataTables.min.js"></script>
 <script src="{{url('/')}}/dashboard/js/jquery.ui.widget.js"></script>
 <script src="{{url('/')}}/dashboard/js/tmpl.min.js"></script>
@@ -21,7 +21,7 @@
 <script src="{{url('/')}}/dashboard/js/sweetalert2.all.min.js"></script>
 
 <script src="{{url('/')}}/dashboard/js/script.js"></script>
-
+@yield('extrajs')
 
 </body>
 

@@ -5,7 +5,8 @@
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
     <meta content="ie=edge" http-equiv="x-ua-compatible"/>
-    <title>Material Design for Bootstrap</title>
+    <title>داشبرد وردپرس برای لاراول</title>
+    <link rel="shortcut icon" href="{{url('/')}}/dashboard/img/final-home-graphic-last.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
     <noscript>
         <link href="{{url('/')}}/dashboard/css/jquery.fileupload-noscript.css" rel="stylesheet"/>
@@ -14,7 +15,8 @@
         <link href="{{url('/')}}/dashboard/css/jquery.fileupload-ui-noscript.css" rel="stylesheet"/>
     </noscript>
     <link href="{{url('/')}}/dashboard/css/style.css" rel="stylesheet">
-    <script src="{{url('/')}}/dashboard/js/chart.min.js"></script>
+    <!-- <script src="{{url('/')}}/dashboard/js/chart.min.js"></script> -->
+    @yield('extracss')
 </head>
 <body>
 <!--Main Navigation-->
@@ -33,7 +35,7 @@
             <!-- Brand -->
             <a class="navbar-brand" href="#">
                 <img alt="" height="25" loading="lazy"
-                     src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"/>
+                src="{{url('/')}}/dashboard/img/final-home-graphic-last.png"/>
             </a>
             <!-- Search form -->
             <form class="d-none d-md-flex input-group w-auto my-auto">
