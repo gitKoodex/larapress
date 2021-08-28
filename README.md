@@ -4,7 +4,7 @@ find orginal on corcel <a href="https://github.com/corcel/corcel.git">corcel</a>
 in here i add and play with the orginal one so mine can has bugs or simply didnt work at all.
 if you are not want to fix my errors. go to the orginal address.
 mine hasent support at all. no documentaion. 
-its for me. but i let you cat do wat ever you want with it.
+its for me. but under public licence so it is what it is.have fun.
 # pakages
 - 1- bootstrap
 - 2- free version of mdbootstrap
